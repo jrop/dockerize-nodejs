@@ -1,0 +1,23 @@
+{
+  "name": "dockerize-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "bin": {
+    "dockerize": "index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "co": "^4.6.0",
+    "fs-extra": "^0.30.0",
+    "fstream-npm": "^1.2.0",
+    "ncp": "^2.0.0",
+    "tmp": "0.0.28",
+    "yargs": "^5.0.0"
+  }
+}
