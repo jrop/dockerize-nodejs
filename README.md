@@ -22,6 +22,7 @@ docker run -it your/tag
 ## Notes
 
 * This utility assumes that your application can be started by running `npm start`.
+* If you have a build-step you want to run before building an image, make sure it is defined in the "prepublish" [npm script](https://docs.npmjs.com/misc/scripts).
 * The Docker image generated is based off of the official NodeJS docker image: change this by passing the `--base/-i` option when building:
     * `dockerize2 build -t some/tag -i some/image`
 
