@@ -1,13 +1,13 @@
 {
-  "name": "dockerize-nodejs",
-  "version": "1.0.0",
+  "name": "dockerize2",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "bin": {
-    "dockerize": "index.js"
+    "dockerize2": "index.js"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +19,8 @@
     "ncp": "^2.0.0",
     "tmp": "0.0.28",
     "yargs": "^5.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
