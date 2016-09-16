@@ -54,7 +54,8 @@ module.exports = co.wrap(function * (argv) {
 
 		// copy Dockerfile into it:
 		const dockerfile = (yield done => fs.readFile(`${__dirname}/../assets/Dockerfile`, 'utf-8', done))
-			.replace('<<ENVIRONMENT>>', argv.env)
+			.replace('<<BASE>>', argv.base)
+			.replace('<<ENVIRONMENT>>', argv.env.map(e => `ENV ${e}`).join('\n'))
 		yield done => fs.writeFile(`${tmpPath}/Dockerfile`, dockerfile, 'utf-8', done)
 
 		// Run some commands:
@@ -79,7 +80,16 @@ module.exports.yargs = yargs => yargs
 		})
 		.option('env', {
 			alias: 'e',
-			describe: 'Sets NODE_ENV in the container',
-			default: process.env.NODE_ENV || 'development',
+			describe: 'Sets an environment variable in the container',
+			type: 'array',
+		})
+		.option('base', {
+			alias: 'i',
+			describe: 'Sets the base image to build from',
+			default: 'node',
 			type: 'string',
 		})
+
+		.usage('$0 build --tag some/tag [options]')
+		.example('$0 build -t my/tag -e NODE_ENV=production -e MY_ENV=some-value', 'Build with environment variables')
+		.example('$0 build -t my/tag -i node:6.5.0-slim', 'Build from a different base image')

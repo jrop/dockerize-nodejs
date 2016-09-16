@@ -10,4 +10,8 @@ const args = yargs
 	.help('help').alias('help', 'h')
 	.version('version', require('./package').version).alias('version', 'v')
 	.demand(1)
+
+	.usage('$0 [command] [options]')
+	.example('$0 ls-files', 'List files that will be included in the container')
+	.example('$0 build [options]', 'Build a dockerized version of your application')
 	.argv

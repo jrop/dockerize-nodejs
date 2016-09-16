@@ -13,14 +13,17 @@ npm install -g dockerize2
 
 ```sh
 cd /your/app/directory
-dockerize2 build --tag your/tag --env development
+dockerize2 build --tag some/tag --env NODE_ENV=production
 docker run -it your/tag
+
+# Learn more with `dockerize2 --help`
 ```
 
 ## Notes
 
 * This utility assumes that your application can be started by running `npm start`.
-* The Docker image generated is based off of my NodeJS docker image: this should be changed to the default NodeJS image, and will eventually be configurable in the future.
+* The Docker image generated is based off of the official NodeJS docker image: change this by passing the `--base/-i` option when building:
+    * `dockerize2 build -t some/tag -i some/image`
 
 # LICENSE
 

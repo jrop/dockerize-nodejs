@@ -1,5 +1,7 @@
-FROM jrop/nodejs
-ENV NODE_ENV=<<ENVIRONMENT>>
+FROM <<BASE>>
+
+<<ENVIRONMENT>>
+
 ADD ./app /app
 WORKDIR /app
 CMD npm start
