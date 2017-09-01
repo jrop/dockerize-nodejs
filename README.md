@@ -1,6 +1,8 @@
 Dockerize for NodeJS applications
 =================================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jrop/dockerize-nodejs.svg)](https://greenkeeper.io/)
+
 A command-line utility to help you dockerize your NodeJS applications.
 
 ## Installation
